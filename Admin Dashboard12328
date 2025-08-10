@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .light-mode {
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        .dark-mode {
+            background-color: #333;
+            color: #f4f4f4;
+        }
+
+        .container {
+            display: grid;
+            grid-template-areas:
+                "header header"
+                "sidebar main"
+                "footer footer";
+            grid-template-columns: 200px 1fr;
+            grid-template-rows: auto 1fr auto;
+            height: 100vh;
+        }
+
+        header {
+            grid-area: header;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #007bff;
+            color: white;
+        }
+
+        sidebar {
+            grid-area: sidebar;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+
+        main {
+            grid-area: main;
+            padding: 20px;
+        }
+
+        footer {
+            grid-area: footer;
+            padding: 10px;
+            text-align: center;
+            background-color: #007bff;
+            color: white;
+        }
+
+        .theme-switch {
+            cursor: pointer;
+            background-color: transparent;
+            border: none;
+            color: white;
+            font-size: 16px;
+        }
+
+        nav a {
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+            color: #007bff;
+        }
+
+        nav a:hover {
+            background-color: #e2e6ea;
+        }
+    </style>
+</head>
+<body class="light-mode">
+    <div class="container">
+        <header>
+            <h1>Admin Dashboard</h1>
+            <button class="theme-switch" onclick="toggleTheme()">Switch to Dark Mode</button>
+        </header>
+        <sidebar>
+            <nav>
+                <a href="#">Home</a>
+                <a href="#">Users</a>
+                <a href="#">Settings</a>
+            </nav>
+        </sidebar>
+        <main>
+            <h2>Welcome to the Admin Dashboard</h2>
+            <p>This is a placeholder for data visualization, reports, or welcome messages.</p>
+        </main>
+        <footer>
+            &copy; 2023 12328Company. All rights reserved.
+        </footer>
+    </div>
+
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            const themeSwitchButton = document.querySelector('.theme-switch');
+
+            if (body.classList.contains('light-mode')) {
+                body.classList.remove('light-mode');
+                body.classList.add('dark-mode');
+                themeSwitchButton.textContent = 'Switch to Light Mode';
+            } else {
+                body.classList.remove('dark-mode');
+                body.classList.add('light-mode');
+                themeSwitchButton.textContent = 'Switch to Dark Mode';
+            }
+        }
+    </script>
+</body>
+</html>
